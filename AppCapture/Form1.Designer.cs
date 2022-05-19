@@ -84,7 +84,6 @@
             this.Name = "Application";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.imageCapture)).EndInit();
             this.ResumeLayout(false);
 
