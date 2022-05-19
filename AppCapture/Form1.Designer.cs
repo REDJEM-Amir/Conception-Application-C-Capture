@@ -76,10 +76,15 @@
             this.Controls.Add(this.ButtonScreen);
             this.Controls.Add(this.ButtonStream);
             this.Controls.Add(this.imageCapture);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Application";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.imageCapture)).EndInit();
             this.ResumeLayout(false);
 
