@@ -1,52 +1,48 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Net.Sockets;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using RDPCOMAPILib;
+using System;
 using System.Windows.Forms;
 
 namespace AppCapture
 {
     public partial class Application : Form
     {
-        MemoryStream ms;
-        NetworkStream stream;
-
-        Bitmap memoryImage;
-
         public Application()
         {
             InitializeComponent();
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+        
+        private void RDPViewer1_Enter(object sender, EventArgs e)
         {
-            
-        }
 
-        private void buttonStream_Click(object sender, EventArgs e)
-        {
-            Thread t = new Thread(Capture);
-            t.Start();
         }
-        private void ButtonScreen_Click(object sender, EventArgs e)
+        RDPSession rdp = new RDPSession();
+        private void Incoming(object Guest)
         {
-            Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            Graphics graphic = Graphics.FromImage(bitmap);
-            graphic.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-            imageCapture.Image = bitmap;
+            IRDPSRAPIAttendee MyGuest = (IRDPSRAPIAttendee)Guest;
+            MyGuest.ControlLevel = CTRL_LEVEL.CTRL_LEVEL_INTERACTIVE;
         }
-
-        void Capture()
+        // Access to COM/firwall will prompt
+        private void button1_Click(object sender, EventArgs e)
         {
-            while (true)
-            {
-                Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-                Graphics graphic = Graphics.FromImage(bitmap);
-                graphic.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-                imageCapture.Image = bitmap;
-                Thread.Sleep(100);
-            }
+            rdp.OnAttendeeConnected += Incoming;
+            rdp.Open();
+        }
+        //connect
+        private void button2_Click(object sender, EventArgs e)
+        {
+            IRDPSRAPIInvitation Invitation = rdp.Invitations.CreateInvitation("Trial", "MyGroup", "", 10);
+            textBox1.Text = Invitation.ConnectionString;
+        }
+        //Share screen
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string Invitation = textBox1.Text;
+            RDPViewer1.Connect(Invitation, "User1", "");
+        }
+        //stop sharing
+        private void button5_Click(object sender, EventArgs e)
+        {
+            RDPViewer1.Disconnect();
         }
     }
 }
