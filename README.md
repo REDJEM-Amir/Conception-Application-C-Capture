@@ -12,7 +12,7 @@
 
 ![alt text](./git/MenuDemarage.PNG?raw=true)
 
-<h3> :date: Inventaire du joueur :</h3>
+<h3> :date: Home Page :</h3>
 
 ![alt text](./git/ApplicationMenu.PNG?raw=true)
 
