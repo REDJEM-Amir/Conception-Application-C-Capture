@@ -40,6 +40,7 @@
             // 
             // RDPViewer1
             // 
+            this.RDPViewer1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             resources.ApplyResources(this.RDPViewer1, "RDPViewer1");
             this.RDPViewer1.Name = "RDPViewer1";
             this.RDPViewer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("RDPViewer1.OcxState")));
