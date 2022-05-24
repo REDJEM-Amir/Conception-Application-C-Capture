@@ -30,16 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Demarage));
-            this.eclipseControl1 = new AppCapture.EclipseControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.eclipseControl1 = new AppCapture.EclipseControl();
             this.SuspendLayout();
-            // 
-            // eclipseControl1
-            // 
-            this.eclipseControl1.CornerRadius = 70;
-            this.eclipseControl1.TargetControl = this;
             // 
             // panel1
             // 
@@ -64,6 +59,11 @@
             this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // eclipseControl1
+            // 
+            this.eclipseControl1.CornerRadius = 70;
+            this.eclipseControl1.TargetControl = this;
+            // 
             // Demarage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,10 +86,9 @@
         }
 
         #endregion
-
-        private EclipseControl eclipseControl1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
+        private EclipseControl eclipseControl1;
     }
 }
