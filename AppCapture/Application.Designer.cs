@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.eclipseControl1 = new AppCapture.EclipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.RDPViewer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,11 +80,16 @@
             resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             // 
+            // eclipseControl1
+            // 
+            this.eclipseControl1.CornerRadius = 70;
+            this.eclipseControl1.TargetControl = this;
+            // 
             // Application
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -108,6 +114,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox1;
+        private EclipseControl eclipseControl1;
     }
 }
 
